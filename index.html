@@ -1,15 +1,268 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Truck Dispatcher Dashboard</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Preserver Trans - Dispatcher Dashboard</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f4f6f8;
+            color: #222;
+        }
+
+        .sidebar {
+            width: 240px;
+            height: 100vh;
+            position: fixed;
+            left: 0;
+            top: 0;
+            background: #111827;
+            color: white;
+            padding: 25px 15px;
+        }
+
+        .logo {
+            font-size: 21px;
+            font-weight: bold;
+            margin-bottom: 35px;
+            text-align: center;
+        }
+
+        .menu {
+            padding: 14px;
+            margin-bottom: 8px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .menu:hover {
+            background: #374151;
+        }
+
+        .main {
+            margin-left: 240px;
+            padding: 30px;
+        }
+
+        .top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .top h1 {
+            font-size: 28px;
+        }
+
+        .dispatcher {
+            background: white;
+            padding: 10px 16px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+        }
+
+        .card h3 {
+            color: #6b7280;
+            font-size: 15px;
+            margin-bottom: 12px;
+        }
+
+        .number {
+            font-size: 32px;
+            font-weight: bold;
+        }
+
+        .section {
+            background: white;
+            margin-top: 30px;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 14px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        th {
+            background: #f9fafb;
+        }
+
+        .status {
+            padding: 6px 10px;
+            border-radius: 20px;
+            font-size: 13px;
+            background: #dcfce7;
+            color: #166534;
+        }
+
+        @media(max-width: 900px) {
+            .sidebar {
+                width: 190px;
+            }
+
+            .main {
+                margin-left: 190px;
+            }
+
+            .cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media(max-width: 600px) {
+            .sidebar {
+                display: none;
+            }
+
+            .main {
+                margin-left: 0;
+                padding: 15px;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .top {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+
+            table {
+                font-size: 12px;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <h1>🚛 Truck Dispatcher Dashboard</h1>
 
-    <h2>Welcome Dispatcher</h2>
+    <div class="sidebar">
 
-    <p>Our dashboard is coming soon...</p>
+        <div class="logo">
+            🚛 Preserver Trans
+        </div>
+
+        <div class="menu">📊 Dashboard</div>
+        <div class="menu">🚚 Trucks</div>
+        <div class="menu">👨‍✈️ Drivers</div>
+        <div class="menu">📦 Loads</div>
+        <div class="menu">📍 Tracking</div>
+        <div class="menu">💰 Reports</div>
+        <div class="menu">⚙️ Settings</div>
+
+    </div>
+
+    <div class="main">
+
+        <div class="top">
+            <h1>Dispatcher Dashboard</h1>
+
+            <div class="dispatcher">
+                👤 Dispatcher
+            </div>
+        </div>
+
+        <div class="cards">
+
+            <div class="card">
+                <h3>🚚 Total Trucks</h3>
+                <div class="number">12</div>
+            </div>
+
+            <div class="card">
+                <h3>👨‍✈️ Drivers</h3>
+                <div class="number">12</div>
+            </div>
+
+            <div class="card">
+                <h3>📦 Active Loads</h3>
+                <div class="number">8</div>
+            </div>
+
+            <div class="card">
+                <h3>🟢 Available Trucks</h3>
+                <div class="number">4</div>
+            </div>
+
+        </div>
+
+        <div class="section">
+
+            <h2>Active Loads</h2>
+
+            <table>
+
+                <tr>
+                    <th>Load #</th>
+                    <th>Driver</th>
+                    <th>Pickup</th>
+                    <th>Delivery</th>
+                    <th>Status</th>
+                </tr>
+
+                <tr>
+                    <td>LD-1001</td>
+                    <td>Driver 01</td>
+                    <td>Ontario, CA</td>
+                    <td>Seattle, WA</td>
+                    <td><span class="status">Loaded</span></td>
+                </tr>
+
+                <tr>
+                    <td>LD-1002</td>
+                    <td>Driver 02</td>
+                    <td>Sumner, WA</td>
+                    <td>Portland, OR</td>
+                    <td><span class="status">In Transit</span></td>
+                </tr>
+
+                <tr>
+                    <td>LD-1003</td>
+                    <td>Driver 03</td>
+                    <td>Grandview, WA</td>
+                    <td>Pasco, WA</td>
+                    <td><span class="status">Available</span></td>
+                </tr>
+
+            </table>
+
+        </div>
+
+    </div>
 
 </body>
 </html>
